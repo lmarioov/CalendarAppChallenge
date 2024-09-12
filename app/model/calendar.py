@@ -115,4 +115,12 @@ class Calendar:
         
         return event.id
     
+    def add_reminder (self, event_id: str, date_time: datetime, type_: str):
+        event = self.events.get(event_id)
+        if not event:
+            event_not_found_error
+            
+
+        Event.add_reminder(date_time = date_time, reminder_type = type_)
+
     
