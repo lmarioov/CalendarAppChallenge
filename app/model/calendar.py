@@ -57,7 +57,7 @@ class Day:
     def __init__(self, date_: date):
         self.date_ = date_
         self.slots: dict[time, str | None] = {}
-        self._init_slots()
+        self.slots = self._init_slots()
   
     def _init_slots(self):
         slots = {}
@@ -101,4 +101,18 @@ class Calendar:
         self.days: dict[date, Day] = {}
         self.events: dict[str, Event] = {}
 
+    def add_event(self, title: str, description: str, date_: date, start_at: time, end_at: time) -> str:
+        if date_ < datetime.now().date():
+            date_lower_than_today_error
+            
+
+        if date_ not in self.days:
+            self.days[date_] = Day(date_)
+
+        event = Event(title = title, description = description, date_ = date_, start_at = start_at, end_at = end_at)
+        self.days[date_].add_event(event.id, start_at, end_at)
+        self.events[event.id] = event
+        
+        return event.id
+    
     
