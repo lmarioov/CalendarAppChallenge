@@ -51,6 +51,12 @@ class Event:
                 f"Description: {self.description}\n"
                 f"Time: {self.start_at} - {self.end_at}")
     
+class Day:
+
+    def __init__(self, date_: date):
+        self.date_ = date_
+        self.slots: dict[time, str | None] = {}
+        self._init_slots()
 
 
 
