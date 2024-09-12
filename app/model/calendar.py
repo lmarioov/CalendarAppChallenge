@@ -1,5 +1,5 @@
 from dataclasses import dataclass, field
-from datetime import datetime, date, time, timedelta
+from datetime import datetime, date, time
 from typing import ClassVar
 
 from app.services.util import generate_unique_id, date_lower_than_today_error, event_not_found_error, \
@@ -51,6 +51,7 @@ class Event:
                 f"Description: {self.description}\n"
                 f"Time: {self.start_at} - {self.end_at}")
     
+
 class Day:
 
     def __init__(self, date_: date):
@@ -93,3 +94,11 @@ class Day:
                     slot_not_available_error()
                 else:
                     self.slots[slot] = event_id
+
+
+class Calendar:
+    def __init__(self):
+        self.days: dict[date, Day] = {}
+        self.events: dict[str, Event] = {}
+
+    
