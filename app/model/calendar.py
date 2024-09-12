@@ -57,7 +57,18 @@ class Day:
         self.date_ = date_
         self.slots: dict[time, str | None] = {}
         self._init_slots()
-
+  
+    def _init_slots(self):
+        slots = {}
+        for hour in range(24):
+            for minute in range(0, 60, 15):
+                time_key = time(hour, minute)
+                slots[time_key] = None
+        return slots
+    
+    def add_event(self, event_id: str, start_at: time, end_at: time):
+        current_time = start_at
+        pass
 
 
 
